@@ -210,6 +210,11 @@
 		    <artifactId>hawtdispatch-scala</artifactId>
 		    <version>1.4</version>
 		</dependency>
+		<dependency>
+			<groupId>com.googlecode.disruptor</groupId>
+			<artifactId>disruptor</artifactId>
+			<version>2.7.1</version>
+		</dependency>
 	</dependencies>
 
 	<repositories>

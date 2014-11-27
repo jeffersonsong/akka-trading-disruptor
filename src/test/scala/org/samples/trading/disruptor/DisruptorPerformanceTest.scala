@@ -46,13 +46,13 @@ class DisruptorPerformanceTest extends BenchmarkScenarios {
     import scala.collection.JavaConverters._
     val ok = latch.await((5000 + (2 + delayMs) * totalNumberOfRequests) * timeDilation, TimeUnit.MILLISECONDS)
     println("ok=" + ok + ":" + repeat + ":" + (orders.size / 2) * repeat + ":" + TotalTradeCounter.counter.get)
-    println("ok hasBacklog:" + receivers.map(_.disruptor.hasBacklog()).mkString(":"))
-    println("ok backlogLength:" + receivers.map(_.disruptor.backlogLength().asScala.mkString(",")).mkString(":"))
+    //println("ok hasBacklog:" + receivers.map(_.disruptor.hasBacklog()).mkString(":"))
+    //println("ok backlogLength:" + receivers.map(_.disruptor.backlogLength().asScala.mkString(",")).mkString(":"))
 
     val ok1 = TotalTradeCounter.latchTrade.await((5000 + (2 + delayMs) * totalNumberOfRequests) * timeDilation, TimeUnit.MILLISECONDS)
     println("ok1=" + ok1 + ":" + repeat + ":" + (orders.size / 2) * repeat + ":" + TotalTradeCounter.counter.get)
-    println("ok1 hasBacklog:" + receivers.map(_.disruptor.hasBacklog()).mkString(":"))
-    println("ok1 backlogLength:" + receivers.map(_.disruptor.backlogLength().asScala.mkString(",")).mkString(":"))
+    //println("ok1 hasBacklog:" + receivers.map(_.disruptor.hasBacklog()).mkString(":"))
+    //println("ok1 backlogLength:" + receivers.map(_.disruptor.backlogLength().asScala.mkString(",")).mkString(":"))
     //    val ok = latch.await((5000 + (2 + delayMs) * totalNumberOfRequests) * timeDilation, TimeUnit.MILLISECONDS)
     val durationNs = (System.nanoTime - start)
 
@@ -96,9 +96,9 @@ class DisruptorPerformanceTest extends BenchmarkScenarios {
             delay(delayMs)
           }
         })
-      println(ordinal + ":" + orderReceiver.disruptor.hasBacklog + ":" + repeat * orders.size + ":" + orderReceiver.disruptor.getRingBuffer.getCursor)
+      //println(ordinal + ":" + orderReceiver.disruptor.hasBacklog + ":" + repeat * orders.size + ":" + orderReceiver.disruptor.getRingBuffer.getCursor)
       import scala.collection.JavaConverters._
-      println("ordinal backlogLength:"+ordinal + ":" +  orderReceiver.disruptor.backlogLength().asScala.mkString(","))
+      //println("ordinal backlogLength:"+ordinal + ":" +  orderReceiver.disruptor.backlogLength().asScala.mkString(","))
       latch.countDown()
     }
   }

@@ -12,7 +12,6 @@ import com.lmax.disruptor.BlockingWaitStrategy
 import com.lmax.disruptor.EventHandler
 import com.lmax.disruptor.SingleThreadedClaimStrategy
 import com.lmax.disruptor.MultiThreadedClaimStrategy
-import com.lmax.disruptor.experimental.MultiThreadedClaimStrategyV2
 
 class DisruptorOrderReceiver() extends OrderReceiver with EventHandler[OrderEvent] {
   type ME = DisruptorMatchingEngine
